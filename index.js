@@ -3,41 +3,40 @@ var dgram = require('dgram');
 var net = require('net');
 
 
-var Snmptrapr = function(handler) {
+var Snmptrapr = function() {
   /**
    * Snmptrapr constructor
    * 
-   * handler param: function that processes received snmp trap messages
-   * Signature: handler(msg, rinfo) { ... }
+   * this.handler: function that processes received snmp trap messages
+   * Signature: function(msg, rinfo) { ... }
    * msg is the raw message parsed with snmp.parse(rawmsg)
    * rinfo is an object literal containing info about the remote host
    *
-   * It's up to you how to process an snmp trap message by passing your
-   * own crafted handler
+   * It's up to you how to process an snmp trap message by assigning your
+   * own crafted handler to Snmptrapr().handler
+   * [ Refer to example_02.js ]
    *
-   * If no handler is passed a default snmp trap message handler is used
-   * [ see below ]
+   * If you don't assign your own handler a default snmp trap message
+   * handler is used [ see below ].
+   * [ Also refer to example_01.js ]
    *
    */
-  
-  if (handler && typeof handler === 'function') {
-    console.log('Using userdefined handler');
-    this.handler = handler;
-  } else {
+
+  this.handler = function(msg, rinfo) {
+    /**
+     * This is a default snmp trap message handler
+     * It simply logs the message to the console
+     * in snmp-native format
+     * Assigning your own handler will overwrite the default handler
+     *
+     */
     console.log('Using default handler');
-    this.handler = function(msg, rinfo) {
-      /**
-       * This is a default snmp trap message handler
-       * It simply logs the message to the console
-       * in snmp-native format
-       */
-      console.log(rinfo);
-      console.log(msg);
-      msg.pdu.varbinds.forEach((varbind) => {
-        console.log(varbind); 
-      });
-    };
-  }
+    console.log(rinfo);
+    console.log(msg);
+    msg.pdu.varbinds.forEach((varbind) => {
+      console.log(varbind); 
+    });
+  };
 
 };
 

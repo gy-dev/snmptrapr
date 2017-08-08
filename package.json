@@ -4,7 +4,8 @@
   "description": "SNMP trap receiver",
   "main": "index.js",
   "scripts": {
-    "example_1": "node example_01.js"
+    "example_1": "node example_01.js",
+    "example_2": "node example_02.js"
   },
   "repository": {
     "type": "git",
