@@ -1,0 +1,27 @@
+{
+  "name": "snmptrapr",
+  "version": "1.0.0",
+  "description": "SNMP trap receiver",
+  "main": "index.js",
+  "scripts": {
+    "example": "node example.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/potc/snmptrapr.git"
+  },
+  "keywords": [
+    "snmp",
+    "trap",
+    "receiver",
+    "trapd"
+  ],
+  "author": {
+    "name": "potc",
+    "email": "p0f7h3c@gmail.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "snmp-native": "^1.1.1"
+  }
+}
