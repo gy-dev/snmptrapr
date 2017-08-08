@@ -75,5 +75,5 @@ Snmptrapr.prototype.close = function() {
 };
 
 
-module.exports = Snmptrapr;
+module.exports = new Snmptrapr();
 
