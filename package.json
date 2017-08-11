@@ -21,7 +21,7 @@
     "name": "potc",
     "email": "p0f7h3c@gmail.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "snmp-native": "^1.1.1"
   }
